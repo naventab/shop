@@ -42,6 +42,17 @@ public class ProductRestController {
 		}
 	}
 
+	@RequestMapping(value = "shop/products/productname/{productname}", method = RequestMethod.GET)
+	public ResponseEntity<List<Product>> findProductByLikeName(@PathVariable("productname") String productName) {
+		List<Product> result = this.repository.findProductByName(productName);
+
+		if (!result.isEmpty()) {
+			return new ResponseEntity<List<Product>>(result, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<Product>>(HttpStatus.NOT_FOUND);
+		}
+	}
+
 	@RequestMapping(value = "shop/products", method = RequestMethod.POST)
 	public ResponseEntity<Product> createPerson(@RequestBody Product newProduct){
 
