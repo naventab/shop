@@ -17,6 +17,8 @@ public class Supplier {
 	private String email;
 	private String phone;
 	private boolean mustBePickedUp;
+	@ManyToOne
+	Postcode postcode;
 
 	@OneToMany
 	private List<Product> products;
@@ -27,6 +29,7 @@ public class Supplier {
 		this.email = email;
 		this.phone = phone;
 		this.mustBePickedUp = mustBePickedUp;
+		this.postcode=null;
 	}
 
 	public Supplier() {

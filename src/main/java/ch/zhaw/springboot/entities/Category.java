@@ -18,9 +18,11 @@ public class Category {
 
     public Category(String name) {
         this.name = name;
+        this.products = new ArrayList<Product>();
     }
 
     public Category() {
+
         this.products = new ArrayList<Product>();
     }
 
@@ -30,5 +32,13 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public long getId() {
+        return id;
     }
 }
